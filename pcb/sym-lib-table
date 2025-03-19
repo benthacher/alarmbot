@@ -1,0 +1,13 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "DRV8231DSGR")(type "KiCad")(uri "${KIPRJMOD}/../library/symbols/DRV8231DSGR.kicad_sym")(options "")(descr ""))
+  (lib (name "DRV8428RTER")(type "KiCad")(uri "${KIPRJMOD}/../library/symbols/DRV8428RTER.kicad_sym")(options "")(descr ""))
+  (lib (name "SIC471ED-T1-GE3")(type "KiCad")(uri "${KIPRJMOD}/../library/symbols/SIC471ED-T1-GE3.kicad_sym")(options "")(descr ""))
+  (lib (name "CM4IO")(type "KiCad")(uri "${KIPRJMOD}/../library/symbols/CM4IO.kicad_sym")(options "")(descr ""))
+  (lib (name "TL1017ABAF160QG")(type "KiCad")(uri "/home/ben/kicad/library/symbols/TL1017ABAF160QG.kicad_sym")(options "")(descr ""))
+  (lib (name "2025-01-05_18-45-49")(type "KiCad")(uri "/home/ben/kicad/library/symbols/2025-01-05_18-45-49.kicad_sym")(options "")(descr ""))
+  (lib (name "2025-01-05_21-46-56")(type "KiCad")(uri "/home/ben/kicad/library/symbols/2025-01-05_21-46-56.kicad_sym")(options "")(descr ""))
+  (lib (name "2025-01-05_22-13-12")(type "KiCad")(uri "/home/ben/kicad/library/symbols/2025-01-05_22-13-12.kicad_sym")(options "")(descr ""))
+  (lib (name "LMR51450SDRRR")(type "KiCad")(uri "/home/ben/kicad/library/symbols/LMR51450SDRRR.kicad_sym")(options "")(descr ""))
+  (lib (name "LP5810")(type "KiCad")(uri "/home/ben/kicad/library/symbols/LP5810.kicad_sym")(options "")(descr ""))
+)
