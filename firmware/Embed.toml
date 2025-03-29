@@ -1,0 +1,6 @@
+[default.general]
+chip = "STM32G431CBUx"
+connect_under_reset = true
+
+[default.rtt]
+enabled = true
