@@ -1,28 +1,36 @@
 #![no_main]
 #![no_std]
 
+use embassy_stm32::rcc;
 use panic_rtt_target as _;
 use rtt_target::{rprintln, rtt_init_print};
-use embassy_stm32::rcc;
+
+// mod usb_interface_test;
+
+mod uart_interface;
 
 #[rtic::app(device = embassy_stm32::pac, peripherals = false, dispatchers = [SPI1])]
 mod app {
+    use messages::Message;
+
     use super::*;
 
     #[shared]
     struct Shared {}
 
     #[local]
-    struct Local {}
+    struct Local {
+        uart_interface: uart_interface::UartInterface<'static>,
+    }
 
     #[init]
-    fn init(mut c: init::Context) -> (Shared, Local) {
+    fn init(_c: init::Context) -> (Shared, Local) {
         rtt_init_print!();
 
         let mut config = embassy_stm32::Config::default();
         config.rcc.hsi = true;
 
-        // 25 MHz oscillator -> div 5, mul 192, div 2 -> 480 MHz sysclk
+        // 16 MHz HSI -> div 4, mul 85, div 2 -> 170 MHz sysclk
         config.rcc.pll = Some(rcc::Pll {
             source: rcc::PllSource::HSI,
             prediv: rcc::PllPreDiv::DIV4,
@@ -39,11 +47,24 @@ mod app {
 
         let p = embassy_stm32::init(config);
 
+        let mut UART_RX_BUFFER: [u8; 1024] = [0u8; 1024];
+
+        let uart = uart_interface::UartInterface::new(
+            p.USART3,
+            p.PB10,
+            p.PB11,
+            p.DMA1_CH1,
+            p.DMA1_CH2,
+            &mut UART_RX_BUFFER,
+        );
+
         rprintln!("init finished");
 
         (
             Shared {},
-            Local {},
+            Local {
+                uart_interface: uart,
+            },
         )
     }
 

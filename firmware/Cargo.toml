@@ -4,18 +4,21 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bincode = { version = "2.0.0-rc.3", default-features = false, features = [
-    "derive",
-] }
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
 embassy-stm32 = { version = "0.2", features = [
     "stm32g431cb",
     "rt",
     "unstable-pac",
+    "memory-x",
 ] }
 panic-rtt-target = { version = "0.2" }
 rtt-target = "0.6"
 rtic = { version = "2.1", features = ["thumbv7-backend"] }
+fring = "0.3.3"
+embassy-usb = "0.4.0"
+messages = { path = "../messages" }
+heapless = "0.8.0"
+embassy-sync = "0.6.2"
 
 [profile.dev]
 opt-level = 3
